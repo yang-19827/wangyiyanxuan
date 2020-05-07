@@ -1,0 +1,5 @@
+export const CHANGEINDEXDATA = 'changeIndexData'
+export const ADDCARTLIST = 'addCartList'
+export const COUNTCHANGEMUTATION = 'countchangemutation'
+export const CHANGESELECTED = 'changeselected'
+export const SELECTEDALLCLICK = 'selectedallclick'
