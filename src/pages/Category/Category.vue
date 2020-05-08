@@ -18,7 +18,7 @@
 		  </div>
 		  <div class="right" v-if="categoryItem">
         <div class="rightScroll">
-          <img class="bigImg" :scr="categoryItem.bannerUrl"/>
+          <img class="bigImg" :src="categoryItem.bannerUrl"/>
           <div class="listWrap">
             <div class="item" v-for="(item,index) in categoryItem.categoryList ? categoryItem.categoryList : categoryItem.subCateList" :key="index">
               <img class="smallImg" :src="item.wapBannerUrl"/>
