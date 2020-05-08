@@ -141,36 +141,40 @@ export default {
   },
   async mounted(){
    await this.changeindexdata()
-    this.$nextTick(()=>{
-    new BScroll('.navContainer',{
-      scrollX: true,
-      click:true
-    })
-    new BScroll('.contentContainer',{
-      scrollY: true,
-      click:true
-    })
-    new Swiper('.swiper-container',{
-      autoplay:true,
-      loop:true,
-      pagination:{
-        el: '.swiper-pagination',
-        type:'custom',
-        renderCustom: function(swiper, current, total) { //自定义分页器
-				var paginationHtml  = "";
-				for(let i = 0; i < total; i++) {
-					//判断哪个分页器此刻应该被激活
-					if(i == (current - 1)) {
-						paginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
-					} else {
-						paginationHtml += '<span class="swiper-pagination-customs"></span>';
-					}
-				}
-				return paginationHtml;
-			}
-      }
-    })
-    })
+  },
+  watch: {
+    indexData(){
+      this.$nextTick(()=>{
+        new BScroll('.navContainer',{
+          scrollX: true,
+          click:true
+        })
+        new BScroll('.contentContainer',{
+          scrollY: true,
+          click:true
+        })
+        new Swiper('.swiper-container',{
+          autoplay:true,
+          loop:true,
+          pagination:{
+            el: '.swiper-pagination',
+            type:'custom',
+            renderCustom: function(swiper, current, total) { //自定义分页器
+            var paginationHtml  = "";
+            for(let i = 0; i < total; i++) {
+              //判断哪个分页器此刻应该被激活
+              if(i == (current - 1)) {
+                paginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+              } else {
+                paginationHtml += '<span class="swiper-pagination-customs"></span>';
+              }
+            }
+            return paginationHtml;
+          }
+          }
+        })
+      })
+    }
   },
 }
 </script>

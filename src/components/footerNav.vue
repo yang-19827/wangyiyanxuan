@@ -11,10 +11,10 @@
         <router-link to='/Buy'>值得买</router-link>
       </van-tabbar-item>
       <van-tabbar-item icon="cart-o">
-        <router-link to='/User'>购物车</router-link>
+        <router-link to='/Cart'>购物车</router-link>
       </van-tabbar-item>
       <van-tabbar-item icon="user-o">
-        <router-link to='/Cart'>个人</router-link>
+        <router-link to='/Login'>个人</router-link>
       </van-tabbar-item>
     </van-tabbar>
   </div>

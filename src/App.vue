@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
+@import url('//at.alicdn.com/t/font_1804243_n1r2lo2cqg.css')
   #app
     width 100%
     height 100%

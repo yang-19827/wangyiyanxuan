@@ -6,7 +6,6 @@ import myAxios from '@/ajax'
 import store from '@/store'
 Vue.config.productionTip = false
 Vue.prototype.$http = myAxios
-
 new Vue({
   router,
   store,
