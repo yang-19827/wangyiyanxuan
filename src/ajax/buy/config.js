@@ -7,7 +7,13 @@ export default{
       isToast:false,
     },
     getBuyData:{
-      url:"/topic/v1/find/recManual.json?page=1&size=15",
+      url:"/topic/v1/find/recManual.json",
+      corsUrl: '/163',
+      method:"get",
+      isToast:false,
+    },
+    getBuyAutoData:{
+      url:"/topic/v1/find/recAuto.json",
       corsUrl: '/163',
       method:"get",
       isToast:false,
