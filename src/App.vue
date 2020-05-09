@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import footerNav from "components/footerNav.vue"
+import footerNav from "components/FooterNav/FooterNav.vue"
 export default {
   name: 'App',
   components:{
@@ -15,7 +15,6 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
-@import url('//at.alicdn.com/t/font_1804243_c6tokc53hin.css')
   #app
     width 100%
     height 100%

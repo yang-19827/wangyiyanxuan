@@ -1,20 +1,20 @@
 <template>
   <div class="navContainer">
-    <van-tabbar v-model='index' active-color='red'>
-      <van-tabbar-item icon="home-o">
-        <router-link to='/Index'>首页</router-link>
+    <van-tabbar  active-color='red' route>
+      <van-tabbar-item icon="home-o" replace to="/Index">
+        首页
         </van-tabbar-item>
-      <van-tabbar-item icon="apps-o">
-        <router-link to='/Category'>分类</router-link>
+      <van-tabbar-item icon="apps-o" replace to="/Category">
+        分类
       </van-tabbar-item>
-      <van-tabbar-item icon="fire-o">
-        <router-link to='/Buy'>值得买</router-link>
+      <van-tabbar-item icon="fire-o" replace to="/Buy">
+        值得买
       </van-tabbar-item>
-      <van-tabbar-item icon="cart-o">
-        <router-link to='/Cart'>购物车</router-link>
+      <van-tabbar-item icon="cart-o" replace to="/Cart">
+        购物车
       </van-tabbar-item>
-      <van-tabbar-item icon="user-o">
-        <router-link to='/Login'>个人</router-link>
+      <van-tabbar-item icon="user-o" replace to="/Login">
+        个人
       </van-tabbar-item>
     </van-tabbar>
   </div>
@@ -22,11 +22,17 @@
 
 <script>
 import { Tabbar, TabbarItem } from 'vant';
+import router from 'router'
 export default {
   name:'footerNav',
   data() {
     return {
-      index:0
+    }
+  },
+  methods: {
+    goTo(path){
+      console.log(router)
+      router.replace(path)
     }
   },
   components:{

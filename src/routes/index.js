@@ -21,5 +21,5 @@ export default [
       {path:'',redirect:'index'}
     ]
 },
-  // {path:'',redirect:Index}
+  {path:'',redirect:'Index'}
 ]
