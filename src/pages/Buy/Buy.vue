@@ -49,7 +49,6 @@ export default {
       buyNavDatas:[],
       oddBuyDatas:[],
       evenBuyDatas:[],
-      maxScrollY : 0,
       page:1
     }
   },
@@ -69,8 +68,8 @@ export default {
       //分页数据
       let autoData = await this.$http.buy.getBuyAutoData({page:pageNumber,size:10})
       autoData.result.forEach((item,index) => {
-        if(index % 2 === 0) this.evenBuyDatas.push(item.topics[0])
-        else this.oddBuyDatas.push(item.topics[0])
+        if(index % 2 === 0) item.topics && this.evenBuyDatas.push(item.topics[0])
+        else item.topics && this.oddBuyDatas.push(item.topics[0])
       });
     }
   },
@@ -84,15 +83,19 @@ export default {
       if(index % 2 === 0) this.evenBuyDatas.push(item.topics[0])
       else this.oddBuyDatas.push(item.topics[1])
     });
+        // this.BScroll && this.BScroll.refresh()
+        // this.BScroll.refresh()
     this.$nextTick(()=>{
       this.BSscroll = new BScroll('.contentContainer',{
           scrollY: true,
           click:true,
           pullUpLoad:true
-        })
+      })
+      this.BSscroll && this.BSscroll.refresh()
       this.BSscroll.on('pullingUp',()=>{
         this.page += 1
         this.getPagesData(this.page)
+        this.BSscroll.finishPullUp()
       })
       new Swiper('.swiper-container',{
         slidesPerView: 4,
@@ -121,23 +124,34 @@ export default {
   watch: {
     evenBuyDatas(){
       // this.$nextTick(()=>{
-      //   this.BSscroll.refresh()
       //   this.maxScrollY = this.BSscroll.maxScrollY
       //   //滚动结束后的回调
       //   this.BSscroll.on('scrollEnd',({x,y})=>{
-      //     if(y = this.maxScrollY){
+      //     // console.log("111")
+      //     this.timer = setTimeout(()=>{
+      //       clearTimeout(this.timer)
+      //       if(y === this.maxScrollY){
+      //         this.page += 1
+      //         this.getPagesData(this.page)
+      //       }
+      //     },500)
+      //   })
+      // })
+      // this.$nextTick(()=>{
+      //   let maxScrollY =  this.getMaxScroll()
+      //   console.log(maxScrollY)
+      //   this.BSscroll.on('scrollEnd',({x,y})=>{
+      //     if(maxScrollY >= -y) {
       //       this.page += 1
       //       this.getPagesData(this.page)
       //     }
       //   })
       // })
-      this.$nextTick(()=>{
-        // let maxScrollY =  this.getMaxScroll()
-        // console.log(maxScrollY)
-        // this.BSscroll.on('scrollEnd',({x,y})=>{
-        //   if
+      
+        // this.BScroll.refresh()
+        // this.BScroll.on('scrollEnd',({x,y})=>{
+        //   this.scrolly =
         // })
-      })
     }
   },
 }

@@ -13,7 +13,7 @@
       <van-tabbar-item icon="cart-o" replace to="/Cart">
         购物车
       </van-tabbar-item>
-      <van-tabbar-item icon="user-o" replace to="/Login">
+      <van-tabbar-item icon="user-o" replace to="/Person">
         个人
       </van-tabbar-item>
     </van-tabbar>

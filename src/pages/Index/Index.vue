@@ -4,12 +4,12 @@
       <router-link to='/Index'>
         <img src="https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png?imageView&type=webp"/>
       </router-link>
-      <div class="search">
+      <div class="search" @click="$router.push('/Search')">
         <i></i>
         <span>搜索商品，共99999款好物</span>
       </div>
       <div class="login">
-        <span>登录</span>
+        登录
       </div>
     </div>
     <div class="navContainer">
@@ -221,6 +221,7 @@ export default {
         text-align center
         line-height 18px
         border-radius 5px
+        font-size 14px
     .navContainer
       width 100%
       height 30px
