@@ -2,7 +2,7 @@
 	<div class="cartContainer">
 		<div class="title">购物车</div>
 		<!-- 没有登录 -->
-		<div v-if="true">
+		<div v-if="false">
 			<div class="header">
 				<span>30天无忧退货</span>
 				<span>48小时快速退货</span>
@@ -17,7 +17,7 @@
 		
 		<!-- 登录：购物车有数据 -->
 		<!-- 购物车列表 -->
-		<div v-else>
+		<div v-else class="contentContainer">
 			<div v-if="cartList.length">
 				<div class="cartList">
 					<div class="cartItem" v-for="(item,index) in cartList" :key='item.id'>
@@ -40,8 +40,8 @@
 				</div>
 				<!-- 底部下单 -->
 				<div class="cartFooter">
-					<span class='iconfont icon-xuanzhong' :class="{selected:seletedAllChange}" @click="clickAllSelected(seletedAllChange)"></span>
-					<span class="allSelected">已选 {{getShopCount}}</span>
+					<span class='iconfont icon-xuanzhong' :class="{selected:selectedAll}" @click="clickAllSelected(selectedAll)"></span>
+					<span class="allSelected">已选 {{cartList.length}}</span>
 					<div class="right">
 						<span class="totalPrice">合计: ￥{{getShopPrice}}</span>
 						<span class="preOrder">下单</span>
@@ -61,23 +61,207 @@
 	export default {
 		data() {
 			return {
-				
-			}
+				cartList:[
+		{
+				"count": 1,
+				"isSelected":true,
+		    "promId": 0,
+		    "showPoints": false,
+		    "itemTagList": [
+		        {
+		            "itemId": 1586040,
+		            "tagId": 128111157,
+		            "freshmanExclusive": false,
+		            "name": "暖冬特惠",
+		            "subType": 204,
+		            "forbidJump": false,
+		            "type": 2
+		        }
+		    ],
+		    "rank": 1,
+		    "id": 1586040,
+		    "sellVolume": 4315,
+		    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/8d3d3daec71799e08c5853ce9e05b440.png",
+		    "soldOut": false,
+		    "sortFlag": 0,
+		    "commentCount": 0,
+		    "onSaleTime": 1539930828979,
+		    "picMode": 1,
+		    "commentWithPicCount": 0,
+		    "underShelf": false,
+		    "status": 2,
+		    "couponConflict": true,
+		    "forbiddenBuy": false,
+		    "promotionDesc": "暖冬特惠",
+		    "limitedFlag": 204,
+		    "pieceNum": 0,
+		    "itemSizeTableDetailFlag": false,
+		    "forbidExclusiveCal": false,
+		    "rewardShareFlag": false,
+		    "updateTime": 1576200840751,
+		    "showCommentEntrance": true,
+		    "pieceUnitDesc": "件",
+		    "specialPromTag": "",
+		    "counterPrice": 699,
+		    "categoryL2Id": 0,
+		    "retailPrice": 525,
+		    "primarySkuPreSellPrice": 0,
+		    "preLimitFlag": 0,
+		    "itemPromValid": true,
+		    "promTag": "暖冬特惠",
+		    "source": 0,
+		    "points": 0,
+		    "primarySkuPreSellStatus": 0,
+		    "extraServiceFlag": 0,
+		    "flashPageLink": "",
+		    "autoOnsaleTimeLeft": 0,
+		    "innerData": {},
+		    "saleCenterSkuId": 0,
+		    "pointsStatus": 0,
+		    "extraPrice": "",
+		    "colorNum": 6,
+		    "showTime": 0,
+		    "autoOnsaleTime": 0,
+		    "preemptionStatus": 1,
+		    "isPreemption": 0,
+		    "zcSearchFlag": false,
+		    "name": "珍贵的软滑感，女式高领纯小山羊绒衫2.0",
+		    "appExclusiveFlag": false,
+		    "itemType": 1,
+		    "listPicUrl": "https://yanxuan-item.nosdn.127.net/ffd34ce21098cacad33371fcff8bd9f9.png",
+		    "pointsPrice": 0,
+		    "simpleDesc": "亲近温暖，拥抱温柔与纯粹",
+		    "seoTitle": "",
+		    "newItemFlag": false,
+		    "buttonType": 0,
+		    "primarySkuId": 300011138,
+		    "displaySkuId": 300014019,
+		    "productPlace": "",
+		    "itemSizeTableFlag": false
 		},
+		{
+				"count": 1,
+				"isSelected":true,
+		    "promId": 0,
+		    "showPoints": false,
+		    "itemTagList": [
+		        {
+		            "itemId": 1593000,
+		            "tagId": 128111156,
+		            "freshmanExclusive": false,
+		            "name": "暖冬特惠",
+		            "subType": 204,
+		            "forbidJump": false,
+		            "type": 2
+		        }
+		    ],
+		    "rank": 1,
+		    "id": 1593000,
+		    "sellVolume": 3168,
+		    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/59c9d23abdfdaac58ede7b3e70934817.png",
+		    "soldOut": false,
+		    "sortFlag": 0,
+		    "commentCount": 0,
+		    "onSaleTime": 1539929494550,
+		    "picMode": 1,
+		    "commentWithPicCount": 0,
+		    "underShelf": false,
+		    "status": 2,
+		    "couponConflict": true,
+		    "forbiddenBuy": false,
+		    "promotionDesc": "暖冬特惠",
+		    "limitedFlag": 204,
+		    "pieceNum": 0,
+		    "itemSizeTableDetailFlag": false,
+		    "forbidExclusiveCal": false,
+		    "rewardShareFlag": false,
+		    "updateTime": 1575512503370,
+		    "showCommentEntrance": true,
+		    "pieceUnitDesc": "件",
+		    "specialPromTag": "",
+		    "counterPrice": 799,
+		    "categoryL2Id": 0,
+		    "retailPrice": 623,
+		    "primarySkuPreSellPrice": 0,
+		    "preLimitFlag": 0,
+		    "itemPromValid": true,
+		    "promTag": "暖冬特惠",
+		    "source": 0,
+		    "points": 0,
+		    "primarySkuPreSellStatus": 0,
+		    "extraServiceFlag": 0,
+		    "flashPageLink": "",
+		    "autoOnsaleTimeLeft": 0,
+		    "innerData": {},
+		    "saleCenterSkuId": 0,
+		    "pointsStatus": 0,
+		    "extraPrice": "",
+		    "colorNum": 3,
+		    "showTime": 0,
+		    "autoOnsaleTime": 0,
+		    "preemptionStatus": 1,
+		    "isPreemption": 0,
+		    "zcSearchFlag": false,
+		    "name": "软糯似baby肌肤，男式高领纯小山羊绒衫",
+		    "appExclusiveFlag": false,
+		    "itemType": 1,
+		    "listPicUrl": "https://yanxuan-item.nosdn.127.net/631f945255aad262ff1b9ce51662f74b.png",
+		    "pointsPrice": 0,
+		    "simpleDesc": "绒毛取自未满1岁的山羊羊羔",
+		    "seoTitle": "",
+		    "newItemFlag": false,
+		    "buttonType": 0,
+		    "primarySkuId": 1630007,
+		    "displaySkuId": 1630008,
+		    "productPlace": "",
+		    "itemSizeTableFlag": false
+		}
+	],
+			}
+    },
+    methods:{
+      changeSelected(selected,index){
+        this.cartList[index].isSelected = !selected
+      },
+      clickAllSelected(selected){
+        this.cartList.forEach(item =>{
+          item.isSelected = !selected
+        })
+      },
+      changeCount(flag,index){
+        if(flag) this.cartList[index].count += 1
+        else {
+          if(this.cartList[index].count === 1) this.cartList.splice(index,1)
+          else this.cartList[index].count -= 1
+        }
+      }
+    },
+    computed:{
+      selectedAll(){
+        let flag = true
+        this.cartList.forEach((item)=>{
+          if(!item.isSelected) flag = false
+        })
+        return flag
+      },
+      // getShopCount(){
+      //   return 2
+      // },
+      getShopPrice(){
+        return this.cartList.reduce((per,item)=>{
+          return per += item.count * item.retailPrice
+        },0)
+      }
+    }
 		
 	}
 </script>
 
 <style lang="stylus">
-  .cartImg
-    display block
-    width 124px
-    height 124px
-    margin 150px auto 25px
   .cartContainer
     position relative
     background #f4f4f4
-    height 100%
+    height calc(100vh - 50px)
     .title
       font-size 16px
       line-height 40px
@@ -110,6 +294,7 @@
         color #7f7f7f
         line-height 30px
     .cartList
+      height 100%
       .cartItem
         position relative
         display flex
@@ -155,9 +340,10 @@
               border-top 1px solid #EEEEEE
               border-bottom 1px solid #EEEEEE
     .cartFooter
-      position fixed
+      position absolute
       display flex	
       bottom 0
+      left 0
       height 46px
       line-height 46px
       width 100%

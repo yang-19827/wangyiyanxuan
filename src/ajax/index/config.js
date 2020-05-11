@@ -6,6 +6,12 @@ export default{
       method:"get",
       isToast:false,
     },
+    getIndexList:{
+      url:"/getindexCateList",
+      corsUrl: '/3002',
+      method:"get",
+      isToast:false,
+    },
   },
   name:'index',
 }

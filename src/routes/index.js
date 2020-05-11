@@ -25,5 +25,5 @@ export default [
       {path:'',redirect:'index'}
     ]
 },
-  {path:'',redirect:'Search'}
+  {path:'',redirect:'Index'}
 ]

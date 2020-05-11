@@ -81,7 +81,9 @@ export default {
     let data = await this.$http.buy.getBuyData()
     data.forEach((item,index) => {
       if(index % 2 === 0) this.evenBuyDatas.push(item.topics[0])
-      else this.oddBuyDatas.push(item.topics[1])
+      else{
+        this.oddBuyDatas.push(item.topics[0])
+      }
     });
         // this.BScroll && this.BScroll.refresh()
         // this.BScroll.refresh()

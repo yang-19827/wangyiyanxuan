@@ -14,16 +14,17 @@
     </div>
     <div class="navContainer">
       <div class="scrollWrap" v-if='indexData.kingKongModule'>
-        <div class="navItem action">
+        <div class="navItem" :class="{action : navId===0}" @click="changeNavId(0)">
           <span>推荐</span>
         </div>
-        <div class="navItem"  v-for="(item,index) in indexData.kingKongModule.kingKongList" :key="index">
+        <div class="navItem" :class="{action : item.L1Id === navId}"  v-for="(item,index) in indexData.kingKongModule.kingKongList" :key="index" @click="changeNavId(item.L1Id)">
           <span>{{item.text}}</span>
         </div>
       </div>
     </div>
+
     <div class="contentContainer">
-      <div class="content">
+      <div class="content" v-if="navId===0">
         <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item,index) in indexData.focusList" :key="index">
@@ -106,6 +107,7 @@
           </div>
         </div>
       </div>
+      <ShopList v-else :id='navId'></ShopList>
     </div>
   </div>
 </template>
@@ -114,9 +116,18 @@
 import BScroll from 'better-scroll'
 import Swiper from 'swiper'
 import 'swiper/css/swiper.min.css'
+import ShopList from 'components/ShopList/ShopList.vue'
 import {mapState,mapActions} from 'vuex'
 export default {
   name:"Index",
+  data() {
+    return {
+      navId:0
+    }
+  },
+  components:{
+    "ShopList":ShopList
+  },
   computed: {
     ...mapState({
       indexData:state => state.index.indexData
@@ -132,12 +143,13 @@ export default {
       }
     },
   },
-  components:{
-  },
   methods: {
     ...mapActions({
       changeindexdata:'getIdnexData'
-    })
+    }),
+    changeNavId(id){
+      this.navId = id
+    }
   },
   async mounted(){
    await this.changeindexdata()
@@ -149,10 +161,12 @@ export default {
           scrollX: true,
           click:true
         })
-        new BScroll('.contentContainer',{
+        this.bscroll = new BScroll('.contentContainer',{
           scrollY: true,
-          click:true
+          click:true,
+          mouseWheel: true,//开启鼠标滚轮
         })
+        this.bscroll.refresh()
         new Swiper('.swiper-container',{
           autoplay:true,
           loop:true,
